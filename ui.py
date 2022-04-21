@@ -42,7 +42,7 @@ def main():
         with st.spinner("Calculating Similarity Score..."):
             img1_embedding = np.array(ast.literal_eval(predict(img1_file)))
             img2_embedding = np.array(ast.literal_eval(predict(img2_file)))
-            score = numpy.linalg.norm(img1_embedding - img2_embedding)
+            score = np.linalg.norm(img1_embedding - img2_embedding)
             st.success(f"Similarity Score: {score}")
 
 if __name__ == "__main__":

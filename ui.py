@@ -34,8 +34,8 @@ def predict(img):
 
 
 def main():
-    img1_file = st.file_uploader("Upload an image", type=["jpg", "png"])
-    img2_file = st.file_uploader("Upload an image", type=["jpg", "png"])
+    img1_file = st.file_uploader("Upload an image", type=["jpg", "png"], key="img1")
+    img2_file = st.file_uploader("Upload an image", type=["jpg", "png"], key="img2")
 
     if img1_file is not None and img2_file is not None:
         with st.spinner("Calculating Similarity Score..."):

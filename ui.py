@@ -42,7 +42,7 @@ def main():
             img1_embedding = predict(img1_file)
             img2_embedding = predict(img2_file)
             # print(type(img1_embedding), type(img2_embedding))
-            st.success(f"Your similarity score is {type(img1_embedding)}, {type(img2_embedding)}")
+            st.success(f"Your similarity score is {img1_embedding}")
 
     # camera_input = st.camera_input("Or take a picture")
     # if camera_input is not None:

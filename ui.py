@@ -10,10 +10,10 @@ API_ENDPOINT = "https://face-embedding-generator.herokuapp.com/predict"
 
 # Create the header page content
 st.title("Face Similarity Score Calculator")
-st.markdown("## Calculate a similarity score for how similar two different faces are, the lower the number the more similar the faces!",
+st.markdown("#### Calculate a similarity score for how similar two different faces are, the lower the number the more similar the faces!",
             unsafe_allow_html=True)
 
-st.markdown("### Please upload an image of each person you want to compare")
+st.text("Please upload an image of each person you want to compare")
 
 
 def predict(img):

@@ -4,6 +4,7 @@ import numpy as np
 from PIL import Image
 import json
 import io
+import ast
 
 API_ENDPOINT = "https://face-embedding-generator.herokuapp.com/predict"
 
@@ -39,8 +40,8 @@ def main():
 
     if img1_file is not None and img2_file is not None:
         with st.spinner("Calculating Similarity Score..."):
-            img1_embedding = np.fromstring(predict(img1_file))
-            img2_embedding = np.fromstring(predict(img2_file))
+            img1_embedding = np.array(ast.literal_eval(predict(img1_file)))
+            img2_embedding = np.array(ast.literal_eval(predict(img2_file)))
             score = np.mean((img1_embedding - img2_embedding) ** 2)
             st.success(f"Your similarity score is {score}")
 

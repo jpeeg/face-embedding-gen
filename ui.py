@@ -10,10 +10,10 @@ API_ENDPOINT = "https://face-embedding-generator.herokuapp.com/predict"
 
 # Create the header page content
 st.title("Face Similarity Score Calculator")
-st.markdown("### Calculate a similarity score between two images with faces in them!",
+st.markdown("## Calculate a similarity score for how similar two different faces are, the lower the number the more similar the faces!",
             unsafe_allow_html=True)
 
-st.text("Please upload images of the people you want to compare")
+st.text("### Please upload an image of each person you want to compare")
 
 
 def predict(img):
@@ -35,8 +35,8 @@ def predict(img):
 
 
 def main():
-    img1_file = st.file_uploader("Person 1:", type=["jpg", "png"], key="img1")
-    img2_file = st.file_uploader("Person 2:", type=["jpg", "png"], key="img2")
+    img1_file = st.file_uploader(st.markdown("### Person 1:"), type=["jpg", "png"], key="img1")
+    img2_file = st.file_uploader(st.markdown("### Person 2:"), type=["jpg", "png"], key="img2")
 
     if img1_file is not None and img2_file is not None:
         with st.spinner("Calculating Similarity Score..."):

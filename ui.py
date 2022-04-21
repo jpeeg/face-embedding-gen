@@ -18,7 +18,7 @@ st.text("Please upload an image of each of the people you want to compare")
 def predict(img):
     bytes_image = img.getvalue()
     np_array = np.array(Image.open(io.BytesIO(bytes_image)))
-    np_array = np_array[..,:3]
+    np_array = np_array[...,:3]
 
     # Send the image to the API
     response = requests.post(

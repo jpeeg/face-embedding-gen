@@ -9,11 +9,11 @@ import ast
 API_ENDPOINT = "https://face-embedding-generator.herokuapp.com/predict"
 
 # Create the header page content
-st.title("Face Similarity Service")
-st.markdown("### Calculate a similarity score between two faces",
+st.title("Face Similarity Score Calculator")
+st.markdown("### Calculate a similarity score between two images with faces in them!",
             unsafe_allow_html=True)
 
-st.text("Please upload an image of each of the people you want to compare")
+st.text("Please upload an image of the people you want to compare")
 
 
 def predict(img):
@@ -35,22 +35,15 @@ def predict(img):
 
 
 def main():
-    img1_file = st.file_uploader("Upload an image", type=["jpg", "png"], key="img1")
-    img2_file = st.file_uploader("Upload an image", type=["jpg", "png"], key="img2")
+    img1_file = st.file_uploader("### Upload an image of person 1", type=["jpg", "png"], key="img1")
+    img2_file = st.file_uploader("### Upload an image of person 2", type=["jpg", "png"], key="img2")
 
     if img1_file is not None and img2_file is not None:
         with st.spinner("Calculating Similarity Score..."):
             img1_embedding = np.array(ast.literal_eval(predict(img1_file)))
             img2_embedding = np.array(ast.literal_eval(predict(img2_file)))
-            score = np.mean((img1_embedding - img2_embedding) ** 2)
-            st.success(f"Your similarity score is {score}")
-
-    # camera_input = st.camera_input("Or take a picture")
-    # if camera_input is not None:
-    #     with st.spinner("Predicting..."):
-    #         prediction = float(predict(camera_input).strip("[").strip("]"))
-    #         st.success(f"Your pet's cuteness score is {prediction:.3f}")
-
+            score = numpy.linalg.norm(img1_embedding - img2_embedding)
+            st.success(f"Similarity Score: {score}")
 
 if __name__ == "__main__":
     main()

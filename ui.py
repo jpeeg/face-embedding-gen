@@ -39,8 +39,8 @@ def main():
 
     if img1_file is not None and img2_file is not None:
         with st.spinner("Calculating Similarity Score..."):
-            img1_embedding = np.fromstring(predict(img1_file), np.float32)
-            img2_embedding = np.fromstring(predict(img2_file), np.float32)
+            img1_embedding = np.fromstring(predict(img1_file))
+            img2_embedding = np.fromstring(predict(img2_file))
             score = np.mean((img1_embedding - img2_embedding) ** 2)
             st.success(f"Your similarity score is {score}")
 

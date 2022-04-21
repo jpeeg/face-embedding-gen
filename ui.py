@@ -13,7 +13,7 @@ st.title("Face Similarity Score Calculator")
 st.markdown("### Calculate a similarity score between two images with faces in them!",
             unsafe_allow_html=True)
 
-st.text("Please upload an image of the people you want to compare")
+st.text("Please upload images of the people you want to compare")
 
 
 def predict(img):
@@ -35,8 +35,8 @@ def predict(img):
 
 
 def main():
-    img1_file = st.file_uploader("### Upload an image of person 1", type=["jpg", "png"], key="img1")
-    img2_file = st.file_uploader("### Upload an image of person 2", type=["jpg", "png"], key="img2")
+    img1_file = st.file_uploader("Person 1:", type=["jpg", "png"], key="img1")
+    img2_file = st.file_uploader("Person 2:", type=["jpg", "png"], key="img2")
 
     if img1_file is not None and img2_file is not None:
         with st.spinner("Calculating Similarity Score..."):

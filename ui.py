@@ -30,7 +30,7 @@ def predict(img):
     if response.status_code == 200:
         return response.text
     else:
-        raise Exception("Status: {}".format(response.status_code))
+        raise Exception("Error: ", response.content)
 
 
 def main():
